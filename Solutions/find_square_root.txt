@@ -5,7 +5,7 @@ Proof of correctness:
 Termination:
 Assuming that 'x' > 0. i starts at 0 and the loop terminates when the i = sqrt(x). In this case x is not changed
 and no external methods is called so there are no side effects. If sqrt(x) was not found then i will be incremented instead,
-eventually this will break the loop condition of i < floor(x/2). There are no side effects in this case as well since no
+eventually this will break the loop condition of i < floor(x/2) + 1. There are no side effects in this case as well since no
 external methods was called and x was not changed. Therefore the algorithm will eventually terminate in all cases.
 
 Correctness-Loop Invariant (LI)
@@ -28,6 +28,6 @@ happen as claimed. In the second subcase being that the if statement is entered 
 function will return x's square root and therefor the loop will terminate as claimed.
 
 Termination:
-If the loop terminates when i > floor(x/2). Mathmatically sqrt(x) <= floor(x/2). Then by the LI x does not have an integer square root and
+If the loop terminates when i > floor(x/2). Mathmatically sqrt(x) <= floor(x/2) + 1. Then by the LI x does not have an integer square root and
 the algorithm is correct in this case. If the loop terminates when i <= floor(x/2), then by the LI x has a square root and the algorithm is 
 correct in this case as well.

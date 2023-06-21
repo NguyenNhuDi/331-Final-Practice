@@ -1,0 +1,10 @@
+The runtime is: O(n^2)
+
+INNER LOOP
+================================
+Termination:
+For every iteration j is incremented. This means that eventually the loop
+condition j < A.size() will be broken without side effects since the size of A
+was not changed and no external call was made. Therefore the inner loop will 
+always terminate.
+

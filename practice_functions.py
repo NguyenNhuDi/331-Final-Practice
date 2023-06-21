@@ -1,6 +1,6 @@
 def find_square_root(x):
     i = 0
-    while i <= x // 2:
+    while i <= (x // 2) + 1:
         if i * i == x:
             return i
         i += 1
@@ -39,6 +39,7 @@ def rev_bubble_sort(A):
 
 print(find_square_root(10))
 print(find_square_root(9))
+print(find_square_root(1))
 
 print(is_prime(1))
 print(is_prime(2))
