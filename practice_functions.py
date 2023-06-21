@@ -15,9 +15,14 @@ def product_by_addition(a, b):
 # sorry andrew ik this is not the fastest
 # but proving a sieve is hard T_T
 def is_prime(x):
+    if 2 >= x > 0:
+        return True
+
     i = 2
     while i < x:
         if x % i == 0:
             return False
         i += 1
     return True
+
+print(is_prime(2))
