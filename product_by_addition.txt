@@ -1,0 +1,24 @@
+The runtime is: O(a)
+
+Bound function:
+A bound function for product_by_addition can be f(a,b) = a * b, where a >= 0 and b >= 1.	
+	For the base case of a = 0, f(a,b) = 0
+	For the recursive call of product_by_addition, f(a,b) > 0
+	For any recursive call, a is decremented by 1. That is for every recursive call 
+	f(a,b) is decreasing by a factor of a.
+
+Claim: product_by_addition correctly finds the product of a and b
+
+Base Case:
+In the base case of a = 0, the if statement at the start is entered and a 0 is returned as claimed since 0 * b = 0.
+
+IH: Assume that for all k >= 0, product_by_addition correctly finds the product of k and b
+
+Inductive Claim: product_by_addition correctly finds the product of k + 1 and b
+Inductive Proof: 
+Since k >= 0, k+1 > 0. This means that the if statement is skiped and the return statement is executed. This means that
+this function returns b + product_by_addition(k,b). By the IH this means that b + k*b is returned.
+b + k*b = b(k+1).
+
+Through a proof of induction, it has been determined that product_by_addition correctly finds the product of a and b where
+a >= 0 and b>=1. 
