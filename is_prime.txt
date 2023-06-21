@@ -1,0 +1,37 @@
+The runtime is: O(n)
+
+Termination:
+During an iteration of the loop, if x has been determined to not be a prime the if statement will
+be entered and the loop will terminate without any side effects since x was not changed and no
+external methods was not called. However if the if statement is not enetered, i will be incremented.
+This means that eventually the loop condition of i < x will break and the loop will termiante without
+any side effects as well since x was not changed and no external method calls was made.
+
+Correctness - Loop Invariant
+Before the ith iteration, x will have been determined to be not a prime and the loop is terminated or
+x has not been determined to be a prime and the ith iteration does happen.
+
+Initialization:
+Before the first iteration, there are two cases to consdier. The first case being that 0 < x <= 2, in this case
+x is a prime and the if statement at the start will have been entered and the first iteration does not happen
+as claimed. The second case being x > 0, in this case x has not been determined to be a prime and the first 
+iteration does happen as claimed.
+
+Maintainence:
+IH: Assume that before the kth iteration where k > 2, x will have been determined to be not a prime and the loop is
+terminated or x has not been determined to be a prime and the kth iteration does happen.
+
+Inductive Claim: Before the kth + 1 iteration, x will have been determined to not be a prime and the loop is terminated
+or x has not been determined to be a prime and the kth + 1 iteration does happen.
+
+Inductive Proof: To prove the IC we must consider what might happen during the kth iteration. By the IH x has not been
+determined to be a prime yet. There are now two subcases we must consider. The first subcase is that the if statement was
+entered and therefore it means that x has been determined to be not a prime. In this case the loop is terminated as claimed.
+In the second subcase the if statement is not entered. In this case x has not been determined to be a prime and i is 
+incremented and the kth + 1 iteration does happen as claimed.
+
+Termination:
+There are two cases to when this loop will terminate. By the LI when x is found to be a prime, the loop will terminate and 
+the algorithm will have determined correctly if x is a prime. The other case is when the loop condition is violated, then 
+by the IH x has not been determined to be not a prime. This means that x is a prime and the algorithm is correct in this case
+as well.
