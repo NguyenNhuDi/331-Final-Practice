@@ -6,6 +6,7 @@ A bound function for product_by_addition can be f(a,b) = a * b, where a >= 0 and
 	For the recursive call of product_by_addition, f(a,b) > 0
 	For any recursive call, a is decremented by 1. That is for every recursive call 
 	f(a,b) is decreasing by a factor of a.
+Therefore product_by_addition will always terminate.
 
 Claim: product_by_addition correctly finds the product of a and b
 
