@@ -1,0 +1,33 @@
+The runtime is: O(n)
+
+Proof of correctness:
+
+Termination:
+Assuming that 'x' > 0. i starts at 0 and the loop terminates when the i = sqrt(x). In this case x is not changed
+and no external methods is called so there are no side effects. If sqrt(x) was not found then i will be incremented instead,
+eventually this will break the loop condition of i < floor(x/2). There are no side effects in this case as well since no
+external methods was called and x was not changed. Therefore the algorithm will eventually terminate in all cases.
+
+Correctness-Loop Invariant (LI)
+Before the ith iteration where i>=0, the square root of x has been found and iteration i does not happen or the square root of x
+has not been found and iteration i does happen.
+
+Initialization:
+Before the first iteration, the loop is never entered and the square root of x has not been found and the first iteration will
+happen as claimed.
+
+Maintenance:
+IH: Assume that before the kth iteration where k>=0, the square root of x has been found and iteration k
+does not happen or the square root of x has not been found and iteration k does happen.
+
+Inductive Claim: Before the kth + 1 iteration, the square root of x has been found or it has not been found yet. 
+Inductive Proof: In order to prove this claim, we must first consider iteraion k. By the IH the square root has not been found
+yet so iteration k does indeed happen. In this iteration there are two subcases that must be considered. The first subcase being
+that the square root of x has not been found in this iteration. In this case the if statement fails and the kth + 1 iteration will 
+happen as claimed. In the second subcase being that the if statement is entered and the square root of x is found. In this case the 
+function will return x's square root and therefor the loop will terminate as claimed.
+
+Termination:
+If the loop terminates when i > floor(x/2). Mathmatically sqrt(x) <= floor(x/2). Then by the LI x does not have an integer square root and
+the algorithm is correct in this case. If the loop terminates when i <= floor(x/2), then by the LI x has a square root and the algorithm is 
+correct in this case as well.

@@ -1,7 +1,9 @@
 def find_square_root(x):
-    for i in range(x // 2):
+    i = 0
+    while i <= x//2:
         if i * i == x:
             return i
+        i += 1
     return -1
 
 
