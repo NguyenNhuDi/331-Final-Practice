@@ -28,7 +28,7 @@ def product_by_addition(a, b):
 
 def rev_bubble_sort(A):
     for i in range(len(A)):
-        for j in range(len(A) - 1):
+        for j in range(len(A) - i-1):
             if A[j] > A[j + 1]:
                 temp = A[j]
                 A[j] = A[j + 1]

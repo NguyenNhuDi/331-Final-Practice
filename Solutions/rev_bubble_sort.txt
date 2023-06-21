@@ -1,10 +1,63 @@
 The runtime is: O(n^2)
 
-INNER LOOP
+INNER LOOP - O(n)
 ================================
 Termination:
 For every iteration j is incremented. This means that eventually the loop
-condition j < A.size() will be broken without side effects since the size of A
+condition j < A.size() - i - 1 will be broken without side effects since the size of A
 was not changed and no external call was made. Therefore the inner loop will 
 always terminate.
+
+Correctness - Loop Invariant:
+Before each iteration of the loop, for all j element of [0,n-i-1] where n is the size of the array.
+Then L[j] is the max in L[0...j].
+
+Initialization:
+Before the first iteration, j = 0. Since j[0...0] is a singleton j[0] is the max as claimed.
+
+Maintenance:
+IH: Assume that before each iteration of the loop, for all k, k element of [0,n-i-1]. Then L[k] is 
+the maximum in L[0...k].
+
+IC: Before kth + 1 iteration, L[k+1] is the maximum in L[0...k+1].
+IP: During the kth iteration there are two subcases that is needed to be considered. The first subcase
+is that L[k] <= L[K+1]. By the IH L[k] is the maximum in L[0...K], therefore L[k+1] is the maximum in
+L[0...k+1] as claimed. The second subcase is that L[k] > L[k+1]. In this case the if statement will 
+be entered and a swap of positions between L[k] and L[k+1] will happen. By the IH L[k] was the maximum
+in L[0...k], and since L[k] was jsut swaped with L[k+1], the new L[k+1] is the maximum in L[0...k+1] as
+claimed.
+
+Termination:
+The last iteration of the loop is when j = n-1. By the LI, L[n-i-1] is the maximum in L[0...n-i-1]
+
+OUTER LOOP - O(n)
+================================
+Termination:
+For every iteration i is incremented. This means that eventually the loop
+condition i < A.size() will be broken without side effects since the size of A
+was not changed and no external call was made. Therefore the inner loop will 
+always terminate.
+
+Correctmess - Loop Invariant:
+Before each iteration of the loop, for all i element of [0,n-1] where n is the size of the array. Then
+L[n-i-1...n-1] is sorted.
+
+Initialization:
+Before the first iteration, i = 0. Since L[n-1...n-1] is a singleton, it is sorted as claimed.
+
+Maintenance:
+IH: Assume that before each iteration of the loop, for all k where k is an element of [0,n-1]. Then 
+L[n-k-1...n-1] is sorted.
+
+IC: Before the kth + 1 iteration, L[n-(k+1)-1...n-1] is sorted.
+
+IP: According to the IH L[n-k-1...n-1] is sorted, this means that there are two subcases to consider
+during the kth iteration. The first subcase is that L[n-(k+1)-1] <= L[n-k-1]. Then in this case
+L[n-(k+1)-1...n-1] is sorted as claimed. In the second subcase,  L[n-(k+1)-1] > L[n-k+1-1]. In this case
+the inner loop will be executed resulting in L[n-(k+1)-1] becoming the maximum in L[0...n-(k+1)-1]. 
+This means that L[n-(k+1)-1] and L[n-k-1] has been swaped and now L[n-(k+1)-1...n-1] is sorted as claimed.
+
+Termination:
+The outer loop will termiante when i > n-1. This means the last iteration that is ran is when i = n-1. By the
+LI this means that L[n-(n-1)-1...n-1] is sorted, or in other words L[0...n-1] is sorted.
 
