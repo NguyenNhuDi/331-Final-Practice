@@ -11,3 +11,13 @@ def product_by_addition(a, b):
 
     return b + product_by_addition(a - 1, b)
 
+
+# sorry andrew ik this is not the fastest
+# but proving a sieve is hard T_T
+def is_prime(x):
+    i = 2
+    while i < x:
+        if x % i == 0:
+            return False
+        i += 1
+    return True
