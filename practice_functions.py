@@ -5,3 +5,9 @@ def find_square_root(x):
     return -1
 
 
+def product_by_addition(a, b):
+    if a == 0:
+        return 0
+
+    return b + product_by_addition(a - 1, b)
+
