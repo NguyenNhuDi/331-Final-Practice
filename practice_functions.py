@@ -26,10 +26,6 @@ def product_by_addition(a, b):
     return b + product_by_addition(a - 1, b)
 
 
-# sorry andrew ik this is not the fastest
-# but proving a sieve is hard T_T
-
-
 def rev_bubble_sort(A):
     for i in range(len(A)):
         for j in range(len(A) - 1):
